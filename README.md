@@ -1,4 +1,4 @@
-## ElasticSearch Dockerfile
+## ElasticSearch Dockerfile [![Docker Repository on Quay.io](https://quay.io/repository/3scale/elasticsearch/status "Docker Repository on Quay.io")](https://quay.io/repository/3scale/elasticsearch)
 
 
 This repository contains **Dockerfile** of [ElasticSearch](http://www.elasticsearch.org/) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/dockerfile/elasticsearch/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
@@ -13,9 +13,9 @@ This repository contains **Dockerfile** of [ElasticSearch](http://www.elasticsea
 
 1. Install [Docker](https://www.docker.com/).
 
-2. Download [automated build](https://registry.hub.docker.com/u/dockerfile/elasticsearch/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull dockerfile/elasticsearch`
+2. Download [automated build](https://quay.io/repository/3scale/elasticsearch/) from public [Quay.io repository](https://quay.io/): `docker pull quay.io/3scale/elasticsearch`
 
-   (alternatively, you can build an image from Dockerfile: `docker build -t="dockerfile/elasticsearch" github.com/dockerfile/elasticsearch`)
+   (alternatively, you can build an image from Dockerfile: `docker build -t="dockerfile/elasticsearch" github.com/3scale/docker-elasticsearch`)
 
 
 ### Usage
