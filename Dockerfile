@@ -10,6 +10,8 @@ FROM dockerfile/java:oracle-java7
 ENV ELASTICSEARCH_VERSION 1.4.0
 ENV ELASTICSEARCH_PATH /opt/elasticsearch
 
+ENV PATH ${ELASTICSEARCH_PATH}/bin/:${PATH}
+
 # Install ElasticSearch.
 RUN wget -qO- https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${ELASTICSEARCH_VERSION}.tar.gz \
   | tar xvz -C /tmp/ \
@@ -25,7 +27,7 @@ ADD config/elasticsearch.yml ${ELASTICSEARCH_PATH}/config/elasticsearch.yml
 WORKDIR /data
 
 # Define default command.
-CMD exec ${ELASTICSEARCH_PATH}/bin/elasticsearch
+ENTRYPOINT ["elasticsearch"]
 
 # Expose ports.
 #   - 9200: HTTP
