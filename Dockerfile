@@ -25,7 +25,7 @@ ADD config/elasticsearch.yml ${ELASTICSEARCH_PATH}/config/elasticsearch.yml
 WORKDIR /data
 
 # Define default command.
-CMD ${ELASTICSEARCH_PATH}/bin/elasticsearch
+CMD exec ${ELASTICSEARCH_PATH}/bin/elasticsearch
 
 # Expose ports.
 #   - 9200: HTTP
