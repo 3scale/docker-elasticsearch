@@ -7,7 +7,7 @@
 # Pull base image.
 FROM dockerfile/java:oracle-java7
 
-ENV ELASTICSEARCH_VERSION 1.4.0
+ENV ELASTICSEARCH_VERSION 1.4.2
 ENV ELASTICSEARCH_PATH /opt/elasticsearch
 
 ENV PATH ${ELASTICSEARCH_PATH}/bin/:${PATH}
