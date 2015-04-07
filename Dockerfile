@@ -6,7 +6,7 @@
 
 FROM java:8
 
-ENV ELASTICSEARCH_VERSION=1.5.0 ELASTICSEARCH_PATH=/opt/elasticsearch
+ENV ELASTICSEARCH_VERSION=1.4.1 ELASTICSEARCH_PATH=/opt/elasticsearch
 
 RUN wget -qO- https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${ELASTICSEARCH_VERSION}.tar.gz \
   | tar xvz -C /tmp/ \
