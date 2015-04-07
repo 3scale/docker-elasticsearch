@@ -4,27 +4,23 @@
 # https://github.com/dockerfile/elasticsearch
 #
 
-# Pull base image
-FROM dockerfile/java:oracle-java7
+FROM java:8
 
-ENV ELASTICSEARCH_VERSION 1.4.2
-ENV ELASTICSEARCH_PATH /opt/elasticsearch
+ENV ELASTICSEARCH_VERSION=1.5.0 ELASTICSEARCH_PATH=/opt/elasticsearch
 
-ENV PATH ${ELASTICSEARCH_PATH}/bin/:${PATH}
-
-# Install ElasticSearch
 RUN wget -qO- https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${ELASTICSEARCH_VERSION}.tar.gz \
   | tar xvz -C /tmp/ \
  && mv /tmp/elasticsearch-${ELASTICSEARCH_VERSION} ${ELASTICSEARCH_PATH}
+
+ENV PATH ${ELASTICSEARCH_PATH}/bin:${PATH} # has to be on own line, so it gets expanded, also it has to be done after install
+
+RUN plugin --install polyfractal/elasticsearch-inquisitor
 
 # Define mountable directories
 VOLUME ["/data"]
 
 # Mount elasticsearch.yml config
 ADD config/elasticsearch.yml ${ELASTICSEARCH_PATH}/config/elasticsearch.yml
-
-# Add a debugging plugin
-RUN /opt/elasticsearch/bin/plugin --install polyfractal/elasticsearch-inquisitor
 
 # Define working directory
 WORKDIR /data
